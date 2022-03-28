@@ -1,35 +1,65 @@
-<div class="content-wrapper" style="min-height: 398px;">
-	<div class="content">
-		<div class="container">
+<!DOCTYPE html>
+<html lang="en">
 
-			<?php foreach ($errors as $error) : ?>
-				<div class="alerta error">
-					<?php echo $error; ?>
-				</div>
-			<?php endforeach; ?>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AdminLTE 3 | Log in</title>
 
-			<h4>Datos de Acceso</h4>
-			
-			<form class="formulario" method="POST" action="/login">
-				<!-- Grupo: Usuario -->
-				<div class="">
-					<label class="">Email</label>
-					<div class="">
-						<input class="" type="email" name="email" placeholder="Correo Electrónico">
+	<!-- Google Font: Source Sans Pro -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+	<!-- icheck bootstrap -->
+	<link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	<!-- Theme style -->
+	<link rel="stylesheet" href="/css/adminlte.min.css">
+</head>
+
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<div class="login-logo">
+			Datos de Acceso
+		</div>
+		<div class="card">
+			<div class="card-body login-card-body">
+				<form action="/login" method="post">
+					<div class="input-group mb-3">
+						<input type="email" name="email" class="form-control" placeholder="Correo Electrónico" value="<?= s($auth->email) ?>">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-envelope"></span>
+							</div>
+						</div>
 					</div>
-				</div>
-				<!-- Grupo: Contraseña -->
-				<div class="">
-					<label class="">Contraseña</label>
-					<div class="">
-						<input class="" type="password" name="password" placeholder="Contraseña">
+					<div class="input-group mb-2">
+						<input type="password" name="password" class="form-control" placeholder="Contraseña">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-lock"></span>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="">
-					<button class="btn btn-success" type="submit">Iniciar Sesión</button>
-				</div>
-			</form>
-			
+					<div class="row">
+						<div class="col-md-12">
+							<?php foreach ($errors as $error) : ?>
+								<div class="invalid-feedback d-block">
+									<strong><?= $error; ?></strong>
+								</div>
+							<?php endforeach; ?>
+							<button type="submit" class="btn btn-primary btn-block mt-2">Iniciar Sesión</button>
+						</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
-</div>
+	<!-- jQuery -->
+	<script src="/plugins/jquery/jquery.min.js"></script>
+	<!-- Bootstrap 4 -->
+	<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="/js/adminlte.min.js"></script>
+</body>
+
+</html>

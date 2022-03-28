@@ -7,6 +7,7 @@ use Model\User;
 
 class UserController {
 
+    // Return users index view
     public static function index(Router $router) {
 
         $users = User::all();
@@ -15,6 +16,7 @@ class UserController {
         ]);
     }
 
+    // Create user
     public static function create(Router $router) {
 
         $user = new User;
@@ -22,11 +24,10 @@ class UserController {
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $args = $_POST['user'];
-            $args['password'] = password_hash($args['password'], PASSWORD_BCRYPT);
-            $user = new User($args);
-            $errors = $user->validate();
+            $user = new User($_POST['user']);
+            $errors = $user->validate();            
             if(empty($errors)) {
+                $user->password = password_hash($user->password, PASSWORD_BCRYPT);
                 $user->save();
             }
         }
@@ -36,6 +37,7 @@ class UserController {
         ]);
     }
 
+    // Update user
     public static function update(Router $router) {
         
         $id = validateOrRedirect('/users');
@@ -45,10 +47,10 @@ class UserController {
         if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $args = $_POST['user'];
-            $args['password'] = password_hash($args['password'], PASSWORD_BCRYPT);
             $user->sync($args);
             $errors = $user->validate();
             if(empty($errors)) {
+                $user->password = password_hash($user->password, PASSWORD_BCRYPT);
                 $user->save();
             }
         }
@@ -58,6 +60,7 @@ class UserController {
         ]);
     }
 
+    // Delete user
     public static function delete() {
 
         if($_SERVER['REQUEST_METHOD'] === 'POST') {

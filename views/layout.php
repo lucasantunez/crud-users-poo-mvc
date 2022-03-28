@@ -1,48 +1,52 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud Usuarios</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CURD Usuario</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="/css/adminlte.min.css">
 </head>
 
-<body class="hold-transition layout-top-nav">
+<body class="layout-top-nav" style="height: auto;">
     <div class="wrapper">
-        <header>
-            <nav class="main-header navbar navbar-expand-md navbar-dark bg-dark">
-                <div class="container">
-                    <a href="/" class="navbar-brand">
-                        <span class="brand-text font-weight-light">CRUD-POO-MVC</span>
-                    </a>
-                    <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" data-toggle="dropdown" href="#">
-                                Usuario
+
+        <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+            <div class="container">
+                <a href="/" class="navbar-brand">
+                    <span class="brand-text font-weight-light">CRUD USUARIOS</span>
+                </a>
+                <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#">
+                            <?php if($_SESSION['login']): ?>
+                                <?= $_SESSION['user_name'] ?>
+                            <?php endif; ?>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                            <div class="dropdown-divider"></div>
+                            <a href="/logout" class="dropdown-item">
+                                Salir
                             </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                <a href="/logout" class="dropdown-item">
-                                    Salir
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>        
 
         <?= $content ?>
 
-        <footer class="footer fixed-bottom navbar-dark bg-dark mt-auto py-3">
-            <div class="container">
-                <span class="text-muted">Lucas Antunez - Desarrollador Web</span>
-            </div>
+        <footer class="main-footer">
+            <strong>Lucas Antunez - Desarrollador Web</strong>
         </footer>
     </div>
 
-    <script src="/js/jQuery.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-</body>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/adminlte.min.js"></script>
 
-</html>
+</body>

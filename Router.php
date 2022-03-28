@@ -52,9 +52,14 @@ class Router {
 
         ob_start(); // Stores in memory
 
-        include __DIR__ . "/views/$view.php";
-        $content = ob_get_clean(); // Clean de buffer
-        include __DIR__ . "/views/layout.php";
+        if($view !== 'auth/login') {
+            include __DIR__ . "/views/$view.php";
+            $content = ob_get_clean(); // Clean de buffer
+            include __DIR__ . "/views/layout.php";
+        } else {
+            include __DIR__ . "/views/$view.php";
+        }
+        
 
     }
 }

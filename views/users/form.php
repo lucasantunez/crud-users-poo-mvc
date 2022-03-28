@@ -1,32 +1,20 @@
-<!-- Grupo: Usuario -->
-<div class="formulario__grupo">
-    <label class="formulario__label" for="name">Nombre</label>
-    <div class="formulario__grupo-input">
-        <input class="formulario__input" type="text" name="user[name]" placeholder="Nombre" value="<?= s($user->name) ?>">
-    </div>
+<div class="form-group">
+    <label>Nombre</label>
+    <input class="form-control" type="text" name="user[name]" placeholder="Nombre" value="<?= s($user->name) ?>">
 </div>
-<!-- Grupo: Apellido -->
-<div class="formulario__grupo">
-    <label class="formulario__label" for="last_name">Apellido</label>
-    <div class="formulario__grupo-input">
-        <input class="formulario__input" type="text" name="user[last_name]" placeholder="Apellido" value="<?= s($user->last_name) ?>">
-    </div>
+<div class="form-group">
+    <label>Apellido</label>
+    <input class="form-control" type="text" name="user[last_name]" placeholder="Apellido" value="<?= s($user->last_name) ?>">
 </div>
-<!-- Grupo: Email -->
-<div class="formulario__grupo">
-    <label class="formulario__label" for="email">Email</label>
-    <div class="formulario__grupo-input">
-        <input class="formulario__input" type="email" name="user[email]" placeholder="Correo Electrónico" value="<?= s($user->email) ?>">
-    </div>
+<div class="form-group">
+    <label>Email</label>
+    <input class="form-control" type="email" name="user[email]" placeholder="Correo Electrónico" value="<?= s($user->email) ?>">
 </div>
-<!-- Grupo: Contraseña -->
-<div class="formulario__grupo">
-    <label class="formulario__label" for="password">Contraseña</label>
-    <div class="formulario__grupo-input">
-        <input class="formulario__input" type="password" name="user[password]" placeholder="Contraseña">
-    </div>
+<div class="form-group">
+    <label>Contraseña</label>
+    <input class="form-control" type="password" name="user[password]" placeholder="Contraseña">
 </div>
-<div class="formulario__grupo formulario__grupo-btn-enviar">
-    <button type="submit" class="btnAceptar">Guardar</button>
-    <a class="btnCancelar" href="/users">Cancelar</a>
+<div class="form-group">
+    <button type="submit" class="btn btn-success">Guardar</button>
+    <a class="btn btn-danger float-right" href="/users">Cancelar</a>
 </div>

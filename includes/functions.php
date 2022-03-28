@@ -1,21 +1,6 @@
 <?php
 
-
-define('TEMPLATES_URL', __DIR__ . '/templates');
 define('FUNCTIONS_URL', __DIR__ . 'funciones.php');
-
-
-function includeTemplate( string  $nombre, bool $inicio = false ) {
-    include TEMPLATES_URL . "/${nombre}.php";
-}
-
-function isAuthenticated() {
-    session_start();
-
-    if(!$_SESSION['login']) {
-        header('Location: /login');
-    }
-}
 
 function debugger($variable) {
     echo "<pre>";
@@ -38,6 +23,5 @@ function validateOrRedirect(string $url) {
     if(!$id) {
         header("Location: ${url}");
     }
-
     return $id;
 }

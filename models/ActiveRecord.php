@@ -73,12 +73,13 @@ class ActiveRecord {
         }
     }
 
+    // Update a record
     public function update() {
         // Sanitize data
-        $atributos = $this->sanitizeAttributes();
+        $attributes = $this->sanitizeAttributes();
 
         $values = [];
-        foreach($atributos as $key => $value) {
+        foreach($attributes as $key => $value) {
             $values[] = "{$key}='{$value}'";
         }
 
@@ -105,50 +106,59 @@ class ActiveRecord {
         }
     }
 
+    // Run the query
     public static function querySQL($query) {
-        $result = self::$db->query($query);
 
+        $result = self::$db->query($query);
         $array = [];
-        while($registro = $result->fetch_assoc()) {
-            $array[] = static::createObject($registro);
+
+        while($record = $result->fetch_assoc()) {
+            $array[] = static::createObject($record);
         }
 
         $result->free();
-
         return $array;
     }
 
-    protected static function createObject($registro) {
-        $objeto = new static;
+    protected static function createObject($record) {
+        $object = new static;
 
-        foreach($registro as $key => $value ) {
-            if(property_exists( $objeto, $key  )) {
-                $objeto->$key = $value;
+        foreach($record as $key => $value ) {
+            if(property_exists( $object, $key  )) {
+                $object->$key = $value;
             }
         }
 
-        return $objeto;
+        return $object;
     }
 
     public function attributes() {
         $attributes = [];
+
         foreach(static::$columnsDB as $column) {
             if($column === 'id') continue;
             $attributes[$column] = $this->$column;
         }
+
         return $attributes;
     }
 
+    // Sanitize attributes
     public function sanitizeAttributes() {
+
         $attributes = $this->attributes();
-        $sanitizado = [];
+        $sanitized = [];
+
         foreach($attributes as $key => $value ) {
-            $sanitizado[$key] = self::$db->escape_string($value);
+            $sanitized[$key] = self::$db->escape_string($value);
         }
-        return $sanitizado;
+
+        return $sanitized;
     }
 
+    // Synchronize an array with the object
     public function sync($args=[]) { 
+
         foreach($args as $key => $value) {
             if(property_exists($this, $key) && !is_null($value)) {
                 $this->$key = $value;

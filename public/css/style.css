@@ -1,0 +1,57 @@
+.logo-header {
+    height: 60px;
+}
+
+.navbar-light {
+    background-color: #3C3B32;
+}
+
+.nav-link {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-ingresar {
+    border: solid 5px #6F6D60;
+    border-radius: 10px;
+    color: #3C3B32 !important;
+}
+
+.drop-icon {
+    font-size: 10px;
+}
+
+.link-menu:hover {
+    text-decoration-line: underline;
+}
+
+.fondo {
+    background-image: url("../img/fondo.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.content-wrapper {
+    background-color: transparent;
+}
+
+.logo-header-gondola {
+    max-width: 400px;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.main-header {
+    border-bottom: none;
+}
+
+h1 {
+    font-size: 46px;
+    line-height: 70px;
+    font-weight: 800;
+    color: #3C3B32;
+    font-family: 'Raleway', sans-serif;
+    z-index: 2;
+}
