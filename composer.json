@@ -1,0 +1,17 @@
+{
+    "name": "lucas/curd_mvc_poo_user",
+    "authors": [
+        {
+            "name": "lucasantunez",
+            "email": "lucasantunez93@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Model\\" : "./models",
+            "MVC\\" : "./",
+            "Controllers\\" : "./controllers"
+        }
+    }
+}
