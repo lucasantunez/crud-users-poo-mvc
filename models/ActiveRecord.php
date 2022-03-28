@@ -69,7 +69,7 @@ class ActiveRecord {
 
         $result = self::$db->query($query);
         if($result) {
-            header('Location: /users');
+            header('Location: /users?result=1');
         }
     }
 
@@ -92,7 +92,7 @@ class ActiveRecord {
 
         if($result) {
             // Redirect user
-            header('Location: /users');
+            header('Location: /users?result=2');
         }
     }
 
@@ -102,7 +102,7 @@ class ActiveRecord {
         $result = self::$db->query($query);
 
         if($result) {
-            header('location: /users');
+            header('location: /users?result=3');
         }
     }
 

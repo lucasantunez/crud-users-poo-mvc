@@ -1,9 +1,21 @@
+<?php $result = $_GET['result'] ?? null; ?>
+
 <div class="content-wrapper" style="min-height: 222px;">
     <div class="content-header">
         <div class="container">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0"> Usuarios</h1>
+                    <h1 class="m-0 mb-2"> Usuarios</h1>
+                </div>
+                <div class="col-md-12">
+                <?php 
+                    $msg = showMessage(intval($result));
+                    if($msg) { ?>
+                        <div class="alert alert-success text-center" role="alert">
+                            <strong><?= s($msg); ?></strong>
+                        </div>
+                    <?php } 
+                ?>
                 </div>
             </div>
         </div>

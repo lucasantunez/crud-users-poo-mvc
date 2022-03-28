@@ -25,3 +25,25 @@ function validateOrRedirect(string $url) {
     }
     return $id;
 }
+
+// Show msg
+function showMessage($result) {
+
+    $msg = '';
+
+    switch($result) {
+        case 1:
+            $msg = 'Usuario guardado correctamente';
+            break;
+        case 2:
+            $msg = 'Usuario actualizado correctamente';
+            break;
+        case 3:
+            $msg = 'Usuario eliminado correctamente';
+            break;
+        default:
+            $msg = false;
+            break;
+    }
+    return $msg;
+}

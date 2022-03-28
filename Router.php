@@ -35,6 +35,10 @@ class Router {
             header('Location: /login');
         }
 
+        if($currentUrl === '/login' && $auth) {
+            header('Location: /');
+        }
+
         if($fn) {
             // The url and function exist
             call_user_func($fn, $this);

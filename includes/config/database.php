@@ -1,6 +1,6 @@
 <?php 
 
-function conectarDB() : mysqli {
+function connectDB() : mysqli {
     $db = new mysqli('localhost', 'root', '1234', 'users_crud');
 
     if(!$db) {

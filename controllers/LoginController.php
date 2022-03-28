@@ -45,6 +45,7 @@ class LoginController {
     // Logout
     public static function logout() {
         session_start();
+        // Clean session
         $_SESSION = [];
         // Redirect to login
         header('Location: /login');
